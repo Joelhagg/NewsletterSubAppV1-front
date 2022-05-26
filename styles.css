@@ -1,7 +1,16 @@
+body {
+    text-align: center;
+}
+
 h1 {
     color: red
 }
 
 .isAuth {
     display: none;
+}
+
+#subCheckbox {
+    width: 20px;
+    height: 20px;
 }

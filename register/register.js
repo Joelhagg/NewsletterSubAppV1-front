@@ -1,6 +1,7 @@
 let user = {};
+let registerResponseFromServer = {};
 
-document.getElementById("registerButton").addEventListener("click", () => {
+document.getElementById("registerButton").addEventListener("click", (e) => {
   let userName = document.getElementById("userName").value;
   let userEmail = document.getElementById("userEmail").value;
   let userPassword = document.getElementById("userPassword").value;
@@ -31,13 +32,25 @@ document.getElementById("registerButton").addEventListener("click", () => {
         body: JSON.stringify(user),
       })
         .then((response) => response.json())
-        .then((result) => {
-          console.log("Success ", result);
-        });
+        .then((result) => (registerResponseFromServer = result));
+
+      console.log(registerResponseFromServer);
+      if (registerResponseFromServer.message == "Användaren är registrerad!") {
+        window.alert("Du har registrerat dig!!!");
+        return (window.location.href = "../login/login.html");
+      }
+      if (
+        registerResponseFromServer.message == "Användaren är redan registrerad"
+      ) {
+        window.alert("Användaren är redan registrerad");
+        location.reload();
+        return;
+      }
     } catch (error) {
       console.error("Error ", error);
     }
   };
 
   postUser();
+  e.preventDefault();
 });

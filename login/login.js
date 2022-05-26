@@ -26,14 +26,21 @@ document.getElementById("loginButton").addEventListener("click", (e) => {
       })
         .then((response) => response.json())
         .then((result) => (loginUserInformation = result));
+      console.log(loginUserInformation);
     } catch (error) {
       console.log("error ", error);
     }
-    localStorage.setItem(
-      "loginUserInformation",
-      JSON.stringify(loginUserInformation)
-    );
-    window.location.href = "../index.html";
+    if (loginUserInformation == "Fel lösenord") {
+      window.alert("Du har angett fel mejladress eller lösenord");
+      location.reload();
+      return console.log("fel lösenord");
+    } else {
+      localStorage.setItem(
+        "loginUserInformation",
+        JSON.stringify(loginUserInformation)
+      );
+      window.location.href = "../index.html";
+    }
   };
 
   postLogin();
