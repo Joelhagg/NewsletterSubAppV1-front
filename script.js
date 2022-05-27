@@ -13,9 +13,10 @@ const initApp = () => {
   let localStorageUserParsed = JSON.parse(localStorageUserString);
   console.log("localStorageUser", localStorageUserParsed);
 
-  if (localStorageUserParsed) {
+  if (!localStorageUserParsed) {
+    isAuth = false;
+  } else {
     isAuth = true;
-
     if (localStorageUserParsed.subOnNewsletter) {
       checkbox.checked = true;
     } else {

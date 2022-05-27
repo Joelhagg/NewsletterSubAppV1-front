@@ -1,14 +1,11 @@
 console.log("Login test");
-
+localStorage.clear();
 document.getElementById("loginButton").addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("click");
 
   let userEmail = document.getElementById("userEmail").value;
   let userPassword = document.getElementById("userPassword").value;
   let loginUserInformation = {};
-
-  console.log(userEmail, userPassword);
 
   let user = {
     email: userEmail,
@@ -26,20 +23,18 @@ document.getElementById("loginButton").addEventListener("click", (e) => {
       })
         .then((response) => response.json())
         .then((result) => (loginUserInformation = result));
-      console.log(loginUserInformation);
+      if (loginUserInformation) {
+        localStorage.setItem(
+          "loginUserInformation",
+          JSON.stringify(loginUserInformation)
+        );
+        window.alert("Du är inloggad!");
+        window.location.href = "../index.html";
+      }
     } catch (error) {
-      console.log("error ", error);
-    }
-    if (loginUserInformation == "Fel lösenord") {
-      window.alert("Du har angett fel mejladress eller lösenord");
-      location.reload();
-      return console.log("fel lösenord");
-    } else {
-      localStorage.setItem(
-        "loginUserInformation",
-        JSON.stringify(loginUserInformation)
-      );
-      window.location.href = "../index.html";
+      console.log("error ");
+      window.alert("Du har angett fel mejladress eller lösenord, försök igen");
+      return location.reload();
     }
   };
 
