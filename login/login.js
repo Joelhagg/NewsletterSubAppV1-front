@@ -14,7 +14,7 @@ document.getElementById("loginButton").addEventListener("click", (e) => {
 
   const postLogin = async () => {
     try {
-      await fetch("https://orca-app-ugjfg.ondigitalocean.app//login", {
+      await fetch("https://orca-app-ugjfg.ondigitalocean.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
