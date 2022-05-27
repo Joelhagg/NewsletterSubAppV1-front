@@ -53,7 +53,7 @@ const initApp = () => {
 
       const sendSubValue = async () => {
         try {
-          await fetch("https://newslettersubapp.herokuapp.com/register", {
+          await fetch("https://orca-app-ugjfg.ondigitalocean.app/register", {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
