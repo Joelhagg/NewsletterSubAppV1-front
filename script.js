@@ -53,7 +53,7 @@ const initApp = () => {
 
       const sendSubValue = async () => {
         try {
-          await fetch("http://localhost:3000/register", {
+          await fetch("https://newslettersubapp.herokuapp.com/register", {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

@@ -24,7 +24,7 @@ document.getElementById("registerButton").addEventListener("click", (e) => {
 
   const postUser = async () => {
     try {
-      await fetch("http://localhost:3000/register", {
+      await fetch("https://newslettersubapp.herokuapp.com/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
