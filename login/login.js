@@ -28,6 +28,7 @@ document.getElementById("loginButton").addEventListener("click", (e) => {
           "loginUserInformation",
           JSON.stringify(loginUserInformation)
         );
+        console.log(loginUserInformation);
         window.alert("Du är inloggad!");
         window.location.href = "../index.html";
       }

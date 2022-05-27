@@ -11,7 +11,6 @@ checkbox.setAttribute("id", "subCheckbox");
 const initApp = () => {
   let localStorageUserString = localStorage.getItem("loginUserInformation");
   let localStorageUserParsed = JSON.parse(localStorageUserString);
-  console.log("localStorageUser", localStorageUserParsed);
 
   if (!localStorageUserParsed) {
     isAuth = false;
@@ -38,7 +37,6 @@ const initApp = () => {
     .getElementById("checkboxForNewsletterButton")
     .addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("click");
 
       let subOnNewsletter = false;
 
@@ -82,7 +80,6 @@ const initApp = () => {
     });
 
   document.getElementById("logOutButton").addEventListener("click", () => {
-    console.log("click");
     localStorage.clear();
     isAuth = false;
     location.reload();
