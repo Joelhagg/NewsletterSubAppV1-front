@@ -24,7 +24,7 @@ document.getElementById("registerButton").addEventListener("click", (e) => {
 
   const postUser = async () => {
     try {
-      await fetch("https://orca-app-ugjfg.ondigitalocean.app/register", {
+      await fetch("https://newslettersubapp.herokuapp.com/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,6 +10,10 @@ h1 {
     display: none;
 }
 
+#adminButtonContainer {
+    text-align: end;
+}
+
 #subCheckbox {
     width: 20px;
     height: 20px;
